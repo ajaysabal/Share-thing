@@ -1,0 +1,71 @@
+<%- include('partials/header') %>
+  <div class="navbar">
+    <a href="/home">Home</a>
+    <a href="/article/new">Add-Product</a>
+    <a href="/profile/User">Profile</a>
+    <div class="search-container">
+      <form action="/search" method="post">
+        <input type="text" name="keyi" placeholder="Search...." required>
+        <button type="submit">search</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="cardprofile">
+    <!-- <h2 style="text-align:center">User Profile Card</h2> -->
+    <h2>Name : <%=currentUserObj.Name %>
+    </h2>
+    <p class="title">E-mail : <%=currentUserObj.username %>
+    </p>
+    <p class="title">Phone : <%=currentUserObj.mob %>
+    </p>
+    <p>Share-Thing Member</p>
+    <a href="/logout">logout</a>
+    <div class="avtarpr">
+      <img src="<%=currentUserObj.avatar.url%>" class="rounded-3" alt={<%=currentUserObj.username%>} />
+    </div>
+  </div>
+  </div>
+
+  <div class="onlyuser">
+    <h1>My Post</h1>
+  </div>
+
+  <div class="blogprofile">
+    <% article.forEach(element=> { %>
+    
+     <% if (element.createid==currentUserObj._id) { %>
+      <div class="blog_post">
+        <h1>
+            <%= element.title %>
+        </h1>
+        <p>
+            <%=element.des.substring(0,50).concat('...') %>
+        </p>
+        <h5><i>CreatedBy:<%=element.createdname %> on <%= element.createdAt.toLocaleDateString()%> </i></h5>
+        <!-- <h3>
+            <%=element.likcnt %>
+        </h3> -->
+        <div class="buttons">
+            <!-- <form action="/like/<%=element.id%>" method="post">
+                <button class="like-btn" type="submit">like</button>
+            </form> -->
+
+            <a class="btn btn_succcess" href="/articleview/<%=element.slug %>">View More</a>
+
+             <a class="btn btn_info" href="/article/edit/<%=element.id %>">Edit</a>
+
+            <a class="btn btn_danger" href="/article/delete/<%=element.id %>">Delete</a> 
+        </div>
+    </div>
+
+       
+
+
+      <% } %>
+
+      <% }); %>
+  </div>
+  
+
+  <%- include('partials/footer') %>
