@@ -243,46 +243,53 @@ i {
 
 /* product-card */
 
-.blog{
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  /* width: auto; */
-  /* display: flex; */
-  justify-content: center;
-  align-items: center;
-  
-}
-.card {
-  
+.blog {
   display: flex;
-  box-shadow: 0 4px 8px 0 rgb(0, 0, 0);
-  transition: 0.3s;
-  /* max-width: 800px;
-   */
-   width: 70%;
-  
-  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: -20px 100px; 
+}
+
+.card {
+  flex: 0 1 calc(25% - 20px); /* Adjust the percentage for 4 cards in a row with margins */
+  margin: 10px; /* Add margin for spacing between cards */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: 60%;
+}
+
+.prcon {
   padding: 20px;
 }
-.prcon{
-  
-  padding: 2px 16px;
+
+.price {
+  font-weight: bold;
 }
+
+.buttons {
+  margin-top: 10px;
+}
+
 .viewmore {
-  background-color: rgba(0, 0, 0, 0.841);
-  color: rgb(237, 235, 235);
-  border: 2px solid green;
+  background-color: #333;
+  color: white;
   padding: 10px 20px;
-  text-align: center;
+  border: none;
+  border-radius: 5px;
   text-decoration: none;
-  display: inline-block;
 }
 
 .viewmore:hover {
-  background-color: green;
-  color: white;
+  background-color: #555;
 }
+
 /* Responsive design */
 @media (max-width: 720px) {
   h1 {
